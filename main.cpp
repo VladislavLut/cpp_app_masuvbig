@@ -1,39 +1,32 @@
 #include <iostream>
 
-using namespace std;
-
 int main() {
-    int size;
-    cout << "Enter the size of the array: ";
-    cin >> size;
+    int rows;
+    std::cout << "Enter the number of rows and columns in the array: ";
+    std::cin >> rows;
 
-    int array[size][size];
+    int* array = new int[rows * rows];
 
-    int userInput;
-    cout << "Enter the starting number: ";
-    cin >> userInput;
+    int firstElement;
+    std::cout << "Enter the first element of the array: ";
+    std::cin >> firstElement;
 
-    array[0][0] = userInput;
-
-    for (int i = 0; i < size; ++i) {
-        if (i > 0) {
-            array[0][i] = array[0][i - 1] * 2;
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < rows; ++j) {
+            array[i * rows + j] = firstElement + i + j;
         }
     }
 
-    for (int i = 1; i < size; ++i) {
-        for (int j = 0; j < size; ++j) {
-            array[i][j] = array[i - 1][j] * 2;
+    std::cout << "Array:" << std::endl;
+
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < rows; ++j) {
+            std::cout << array[i * rows + j] << " ";
         }
+        std::cout << std::endl;
     }
 
-    cout << "The resulting array:" << endl;
-    for (int i = 0; i < size; ++i) {
-        for (int j = 0; j < size; ++j) {
-            cout << array[i][j] << " ";
-        }
-        cout << endl;
-    }
+    delete[] array;
 
     return 0;
 }
