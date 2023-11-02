@@ -4,13 +4,13 @@ using namespace std;
 
 int main() {
     int size;
-    cout << "¬вед≥ть розм≥р масиву: ";
+    cout << "Enter the size of the array: ";
     cin >> size;
 
     int array[size][size];
 
     int userInput;
-    cout << "¬вед≥ть початкове число: ";
+    cout << "Enter the starting number: ";
     cin >> userInput;
 
     array[0][0] = userInput;
@@ -27,7 +27,7 @@ int main() {
         }
     }
 
-    cout << "ќтриманий масив:" << endl;
+    cout << "The resulting array:" << endl;
     for (int i = 0; i < size; ++i) {
         for (int j = 0; j < size; ++j) {
             cout << array[i][j] << " ";
